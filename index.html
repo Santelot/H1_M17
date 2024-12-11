@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        table { width: 100%; border-collapse: collapse; }
+        td { padding: 8px; border: 1px solid #ddd; vertical-align: top; }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+                document.getElementById('activity-8').style.display = 'none';
+                document.getElementById('activity-7').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H1 - M17</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+<!-- Actividad 1 -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">🎉 Actividad 1: Saludo y Ritual Gnius Club ⏰ Tiempo: 2.5 minutos</div>
+        <div class="subtitle">Saludar a los genios y preparar el ambiente para el aprendizaje.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 2 "Bienvenida".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hola, Genios. Hoy vamos a adentrarnos en el mundo de los frameworks de IA y cómo combinarlos para resolver problemas más complejos. ¡Será un día lleno de aprendizaje estratégico!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 3 "¿Cómo están?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de empezar, quiero ver cómo se sienten hoy. Si están listos y emocionados, hagan un círculo con ambas manos frente a ustedes como si sostuvieran una lupa. Si necesitan un poco de energía, den una palmada suave con ambas manos frente a su pecho."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 4 "Gracias por Asistir".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, juntemos nuestras manos en agradecimiento por estar aquí. ¡Gracias por asistir, Genios!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (0.5 minutos):</strong> Proyectar Diapositiva 5 "Objetivos de la Misión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Hoy tenemos tres objetivos importantes: 1. Comprender los métodos de combinación de técnicas de prompting. 2. Integrar estas técnicas en un framework práctico. 3. Aplicar lo aprendido para diseñar un plan efectivo utilizando IA. ¡Manos a la obra!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2 -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('innovacion_dia')">
+        <div class="title">💡 Actividad 2: Innovación del Día ⏰ Tiempo: 4 minutos</div>
+        <div class="subtitle">Presentación de una herramienta revolucionaria para potenciar ideas creativas.</div>
+    </div>
+    <div id="innovacion_dia" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 6 "Innovación del Día".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy vamos a conocer una herramienta revolucionaria que lleva la creatividad y la inteligencia artificial a un nuevo nivel: RunwayML. Es una plataforma que combina texto, imágenes y videos en un marco unificado. ¡Descubramos cómo puede potenciar nuestras ideas!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (2 minutos):</strong> Proyectar Diapositiva 7 "Demostración de RunwayML".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora vamos a ver RunwayML en acción. Esta plataforma no solo es poderosa, sino también accesible para creadores de todos los niveles. Observemos cómo integra múltiples técnicas para diseñar contenido avanzado."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 8 "Reflexión sobre RunwayML".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "¿Qué les pareció, Genios? RunwayML nos muestra cómo la combinación de técnicas en un framework puede ser una herramienta poderosa para resolver problemas creativos y técnicos. Ahora vamos a aplicar este enfoque en nuestra misión de hoy."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3 -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('brain_gym')">
+        <div class="title">🧠 Actividad 3: Brain Gym ⏰ Tiempo: 18 minutos</div>
+        <div class="subtitle">Exploración de técnicas avanzadas de prompting y frameworks aplicados.</div>
+    </div>
+    <div id="brain_gym" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 9 "Introducción".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, ¿recuerdan que hasta ahora hemos explorado técnicas individuales de prompting como contexto, instrucciones y ejemplos? Pues hoy vamos a dar un paso más allá y aprender a combinarlas de diferentes formas para obtener resultados variados que pueden ser útiles en diversos escenarios. Esta técnica es crucial cuando trabajamos con tareas más complejas que requieren respuestas más detalladas. Aprenderemos cómo unir estas técnicas para que la IA no solo entienda mejor lo que le pedimos, sino que también ofrezca soluciones más sofisticadas y precisas, según el escenario que se nos presente."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 10 "¿Qué es combinar técnicas?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Cuando hablamos de combinar técnicas en prompting, nos referimos a unir diferentes elementos como roles, instrucciones, contextos o ejemplos en un solo prompt. Esto es como crear una receta: cada ingrediente tiene un propósito, pero juntos forman algo más completo y funcional. Por ejemplo, al especificar un rol y acompañarlo con un ejemplo claro, logramos que la IA entienda exactamente el enfoque que queremos que tome. Combinando técnicas, podemos guiar a la IA de manera más efectiva, permitiendo respuestas que se ajusten mejor a nuestras necesidades."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 11 "¿Por qué combinar técnicas?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Combinar técnicas no solo mejora la interacción con la IA, sino que transforma cómo abordamos tareas complejas. Por ejemplo, al usar contexto, ejemplos e instrucciones claras, la IA puede identificar patrones específicos y responder de manera más precisa. Esto no solo aumenta la exactitud de sus respuestas, sino que también genera resultados más matizados, adecuados a nuestras necesidades. ¿Se imaginan pedirle a la IA que diseñe una campaña publicitaria creativa usando estas combinaciones? ¡Es posible y mucho más eficaz con estas técnicas!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 12 "¿Cuándo combinar técnicas?".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Aunque combinar técnicas siempre aporta valor, hay situaciones donde es esencial. Por ejemplo, cuando necesitamos que la IA actúe como un profesional específico, como un médico o un historiador, podemos usar prompts que combinen rol e instrucción. Por otro lado, para tareas más creativas, como clasificar datos o generar contenido único, una combinación de contexto, ejemplos e instrucciones puede hacer toda la diferencia. Estas combinaciones son como herramientas que podemos elegir según el problema que queremos resolver."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (1 minuto):</strong> Proyectar Diapositiva 13 "Rol e Instrucción".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "La combinación de rol e instrucción en un prompt es extremadamente útil cuando queremos que la IA tome un enfoque específico. Por ejemplo, si decimos: 'Eres un historiador especializado en la Segunda Guerra Mundial. Escribe un análisis breve de las causas principales del conflicto.' Estamos indicando a la IA exactamente cómo queremos que aborde la tarea. Este enfoque guía las respuestas hacia un estilo más estructurado y relevante para el contexto que buscamos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (1 minuto):</strong> Proyectar Diapositiva 14 "Contexto + Instrucción + Few-Shot".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Cuando combinamos contexto, instrucciones y ejemplos, logramos un prompt completo que guía al modelo con claridad. Por ejemplo, podríamos decir: 'Clasifica los tweets como positivos o negativos. Ejemplo 1: “Qué día tan increíble” es positivo. Ejemplo 2: “No soporto esta clase” es negativo. Clasifica este: “Me encantan los helados en verano”.' Aquí le damos a la IA todas las herramientas necesarias para entender la tarea y responder con precisión."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (1 minuto):</strong> Proyectar Diapositiva 15 "Mejores Prácticas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para que nuestras combinaciones de técnicas sean efectivas, debemos seguir ciertas reglas: comienza con algo simple, como combinar rol e instrucción, y luego añade más elementos si es necesario. Usa ejemplos claros y relevantes para guiar a la IA y mantén instrucciones específicas y directas. Por último, no tengas miedo de experimentar y ajustar tus prompts hasta encontrar la combinación que funcione mejor para la tarea que quieres resolver."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (1 minuto):</strong> Proyectar Diapositiva 16 "Cheat Sheet: SWOT".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Para crear prompts efectivos que integren múltiples técnicas de prompting, hemos reunido un pequeño pero poderoso compendio de combinaciones diversas que los ayudarán a desbloquear el potencial completo de ChatGPT. A estas combinaciones se les suelen llamar 'Frameworks de Prompting'. El framework SWOT (Fortalezas, Debilidades, Oportunidades y Amenazas) es una herramienta estratégica utilizada para analizar situaciones complejas. En prompting, podemos adaptarlo para guiar a la IA en un análisis detallado. Por ejemplo, podríamos decir: 'Evalúa las fortalezas de este producto, identifica sus debilidades, explora oportunidades de mejora y considera amenazas potenciales.' Esto permite estructurar la respuesta de la IA para un análisis completo y organizado, ideal para proyectos de planificación estratégica o evaluaciones de mercado."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 9 (1 minuto):</strong> Proyectar Diapositiva 17 "Cheat Sheet: STAR".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "El framework STAR (Situación, Tarea, Acción, Resultado) es ideal para prompts donde necesitamos que la IA narre o explique procesos. Por ejemplo: 'Describe una situación donde se enfrentó un problema, explica qué acciones se tomaron y cuáles fueron los resultados.' Este enfoque guía a la IA a ofrecer respuestas narrativas claras y estructuradas, perfectas para analizar casos, experiencias o resolver preguntas conductuales."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 10 (1 minuto):</strong> Proyectar Diapositiva 18 "Cheat Sheet: CLEAR".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "CLEAR (Desafío, Limitación, Efecto, Acción, Resultado) es un framework diseñado para identificar problemas y proponer soluciones. En prompting, podemos usarlo para guiar a la IA en la solución de problemas complejos. Por ejemplo: '¿Cuál es el desafío principal que enfrenta este proyecto? ¿Qué limitaciones existen? ¿Qué efectos tiene esto? Proporcione acciones que puedan tomarse y los resultados esperados.' Este framework es valioso para situaciones donde necesitamos proyecciones claras y propuestas basadas en análisis de limitaciones."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 11 (1 minuto):</strong> Proyectar Diapositiva 19 "Cheat Sheet: PAR".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "El framework PAR (Problema, Acción, Resultado) es una herramienta simple pero poderosa para estructurar prompts centrados en la resolución de problemas. Por ejemplo: 'Identifica un problema en esta situación, describe las acciones que tomarías para resolverlo y explica los resultados esperados.' Este enfoque es ideal para prompts donde necesitamos respuestas rápidas y prácticas para analizar escenarios específicos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 12 (1 minuto):</strong> Proyectar Diapositiva 20 "Cheat Sheet: RTF".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "RTF (Rol, Tarea, Formato) es perfecto para tareas específicas donde la IA debe adoptar un rol y presentar resultados en un formato claro. Por ejemplo: 'Actúa como un diseñador gráfico. Crea un plan para diseñar un logotipo, incluyendo los conceptos principales y bocetos iniciales en una tabla.' Este framework guía a la IA a trabajar como un experto en un campo específico y generar resultados prácticos. Como dato curioso, RTF es el único framework que no se puede pronunciar como una palabra (al menos no de manera decente)."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 13 (1 minuto):</strong> Proyectar Diapositiva 21 "Cheat Sheet: TAG".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "TAG (Tarea, Acción, Meta) es un framework sencillo que guía la IA a completar tareas enfocadas en metas claras. Por ejemplo: 'Evalúa el rendimiento de un equipo. Identifica áreas de mejora (tarea), sugiere acciones específicas (acción) y establece una meta clara para el próximo trimestre.' Este enfoque es útil para prompts donde necesitamos resultados enfocados y medibles, ideales para evaluaciones y planes de acción."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 14 (1 minuto):</strong> Proyectar Diapositiva 22 "Cheat Sheet: BAB".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "BAB (Antes, Después, Puente) es un framework diseñado para análisis comparativos y planificación estratégica. Por ejemplo: 'Describe cómo es la situación actual (antes), explica el resultado deseado (después) y sugiere un plan para lograrlo (puente).' Este método permite a la IA visualizar transformaciones y proponer estrategias claras para alcanzar objetivos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 15 (1 minuto):</strong> Proyectar Diapositiva 23 "Cheat Sheet: CARE".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "CARE (Contexto, Acción, Resultado, Ejemplo) es ideal para prompts donde queremos guiar a la IA basándonos en casos de éxito previos. Por ejemplo: 'Estamos lanzando un nuevo producto sostenible (contexto). Diseña una campaña publicitaria (acción) que genere ventas (resultado) basada en un caso similar exitoso, como la campaña “Don’t Buy This Jacket” de Patagonia (ejemplo).' Este framework combina análisis y creatividad, ideal para tareas de marketing y estrategia."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 16 (1 minuto):</strong> Proyectar Diapositiva 24 "Cheat Sheet: RISE".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "RISE (Rol, Entrada, Pasos, Expectativa) es un framework avanzado que guía a la IA con instrucciones claras y detalladas. Por ejemplo: 'Actúa como estratega de contenido (rol). Usa esta información de audiencia (entrada) para crear un plan paso a paso (pasos) que aumente visitas en un 40% y mejore la posición de la marca como líder de opinión (expectativa).' Este enfoque permite resultados altamente detallados y alineados con objetivos específicos."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 17 (0.5 minutos):</strong> Proyectar Diapositiva 25 "Conclusión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Combinar técnicas en prompting nos permite crear estructuras más sólidas, guiar a la IA de forma más precisa y obtener resultados alineados con nuestras necesidades. Hemos explorado diferentes frameworks hoy, y cada uno ofrece un enfoque único para resolver problemas y crear soluciones. Ahora tienen un arsenal de herramientas para diseñar prompts que maximicen el potencial de los modelos de IA."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 18 (0.5 minutos):</strong> Proyectar Diapositiva 26 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de pasar a la siguiente actividad, revisemos los objetivos alcanzados hasta ahora: 1. Hemos comprendido los diferentes métodos de combinación de técnicas de prompting. 2. Hemos explorado cómo integrar estas técnicas en un framework práctico. El último objetivo, relacionado con el Challenge, lo abordaremos más adelante. ¡Gran trabajo hasta ahora, Genios!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4 -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">🤸‍♂️ Actividad 4: State Change ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Una breve pausa activa para recargar energía y mejorar la concentración.</div>
+    </div>
+    <div id="state_change" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 27 "Manos Mágicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, vamos a activar nuestra energía con una actividad rápida llamada 'Manos Mágicas'. Froten sus manos rápidamente hasta que se sientan calientes y luego colóquenlas suavemente sobre sus ojos cerrados. Esto nos ayudará a relajar la vista y prepararnos para seguir aprendiendo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 28 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 29 "Reflexión sobre Manos Mágicas".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, esta actividad nos ayuda a relajar la tensión acumulada en los ojos y mejorar nuestra concentración. Estas pequeñas pausas físicas son esenciales para mantener nuestra energía y enfoque durante actividades mentales intensas. ¡Muy bien hecho!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5 -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">👥 Actividad 5: Team Gnius ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Formación de equipos para colaborar en las próximas actividades.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 30 "Formación de Equipos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, para esta actividad trabajaremos en equipos de 2 personas. Busquen a un compañero con quien no hayan trabajado antes. ¡Tienen 1 minuto para organizarse!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Proyectar Diapositiva 31 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 32 "Recoger Magic Tablets".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que tienen sus equipos listos, necesito que un representante de cada equipo pase a recoger las Magic Tablets. Tienen 1 minuto para hacerlo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (1 minuto):</strong> Proyectar Diapositiva 33 "Cronómetro - 1 Minuto".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 6 -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">🚀 Actividad 6: Challenge ⏰ Tiempo: 25 minutos</div>
+        <div class="subtitle">Aplicación práctica de las técnicas de prompting y frameworks aprendidos.</div>
+    </div>
+    <div id="challenge" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 34 "Introducción al Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, hoy vamos a llevar nuestro aprendizaje al siguiente nivel creando un plan para una startup innovadora. Este desafío está dividido en etapas que nos guiarán paso a paso para conceptualizar nuestra idea, utilizar técnicas avanzadas de prompting, y obtener los mejores resultados posibles con la ayuda de la IA. ¡Este es un momento para ser creativos y estratégicos!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 35 "Explicación del Challenge".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En este desafío, trabajarán en equipos para diseñar un plan para una startup utilizando las técnicas de prompting que hemos aprendido. Pasaremos por varias etapas: primero conceptualizaremos una idea, después crearemos prompts combinados y finalmente evaluaremos los resultados obtenidos con la IA. Este proceso no solo les permitirá aprender más sobre el diseño de prompts, sino que también les mostrará cómo estas herramientas pueden ser usadas para resolver problemas del mundo real."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (0.5 minutos):</strong> Proyectar Diapositiva 36 "Etapa 1: Conceptualización".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En la primera etapa, van a trabajar juntos para identificar problemas o necesidades en su comunidad o intereses personales que les apasionen. Piensen en tendencias emergentes en México y cómo podrían aprovechar estas oportunidades. Llenen el 'Business Idea Worksheet' para listar sus ideas. Luego seleccionen una sola idea que los emocione y tenga potencial en el mercado. Finalmente, describan brevemente el concepto de su startup. Recuerden que esta etapa es clave para definir el enfoque de su proyecto."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 4 (3 minutos):</strong> Proyectar Diapositiva 37 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 5 (0.5 minutos):</strong> Proyectar Diapositiva 38 "Etapa 2: Técnicas de Prompting".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora, revisaremos dos técnicas de prompting clave: SWOT y RISE. SWOT nos ayuda a analizar fortalezas, debilidades, oportunidades y amenazas, mientras que RISE guía a la IA con roles específicos, entradas claras, pasos detallados y expectativas definidas. Vamos a aprender cómo combinar estas técnicas para obtener respuestas más completas y efectivas. Lean el material proporcionado para comprender mejor estas herramientas."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 6 (2 minutos):</strong> Proyectar Diapositiva 39 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 7 (0.5 minutos):</strong> Proyectar Diapositiva 40 "Etapa 3: Prompt Combinado".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "En esta etapa, diseñarán un prompt combinado utilizando el framework RISE y el análisis SWOT. Definan el rol de la IA, como un consultor de negocios con experiencia en el mercado mexicano. Provean información clara sobre su idea de startup como entrada. Incluyan pasos específicos, como realizar un análisis SWOT y generar un plan de acción. Finalmente, establezcan la expectativa clara de lo que quieren obtener: por ejemplo, un plan detallado que atraiga inversionistas. Asegúrense de que su prompt sea claro y completo para guiar bien a la IA."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 8 (3 minutos):</strong> Proyectar Diapositiva 41 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 9 (0.5 minutos):</strong> Proyectar Diapositiva 42 "Etapa 4: Interacción con la IA".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que tienen su prompt combinado, es momento de probarlo con la IA. Introduzcan el prompt que crearon y revisen la respuesta que reciben. Asegúrense de que la IA realice un análisis SWOT detallado y proponga pasos accionables para desarrollar su startup. Si hay algo que no está claro o les gustaría mejorar, pueden hacer preguntas adicionales a la IA para obtener más detalles o clarificaciones. Documenten todo lo que reciban en las plantillas proporcionadas para el análisis SWOT y el plan de acción."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 10 (2 minutos):</strong> Proyectar Diapositiva 43 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 11 (0.5 minutos):</strong> Proyectar Diapositiva 44 "Etapa 5: Refinamiento".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora vamos a refinar lo que hemos recibido de la IA. Revisen el análisis SWOT y el plan de acción para asegurarse de que sean detallados y relevantes para su idea de startup. Si detectan áreas que pueden mejorarse, ajusten el prompt añadiendo más detalles o preguntas específicas. Por ejemplo: 'Proporcione estrategias de marketing específicas para el mercado mexicano.' Después de ajustar el prompt, vuelvan a interactuar con la IA y documenten cualquier nueva información obtenida. Este proceso les ayudará a crear un plan mucho más completo."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 12 (2 minutos):</strong> Proyectar Diapositiva 45 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 13 (0.5 minutos):</strong> Proyectar Diapositiva 46 "Etapa 6: Presentación".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Es momento de compartir sus resultados. Resuman los puntos clave de su análisis SWOT y los pasos de su plan de acción. Si quieren, pueden usar presentaciones visuales como diapositivas o pósteres para hacerlo más dinámico. Resalten cómo la combinación de técnicas de prompting ayudó a mejorar su planificación. Júntense con otro equipo cercano y compartan su trabajo entre ustedes. Esto les permitirá recibir retroalimentación valiosa y nuevas ideas para mejorar aún más su proyecto."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 14 (3 minutos):</strong> Proyectar Diapositiva 47 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 15 (0.5 minutos):</strong> Proyectar Diapositiva 48 "Etapa 7: Reflexión".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Antes de finalizar, reflexionemos sobre lo que aprendieron hoy. Completen la hoja de reflexión respondiendo preguntas como: ¿Cómo impactó la combinación de técnicas de prompting en su plan? ¿Qué tan útiles encontraron las respuestas de la IA? También piensen en los siguientes pasos para desarrollar su idea de startup, como realizar una investigación de mercado o buscar mentores. Este ejercicio les ayudará a llevar su idea al siguiente nivel."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 16 (2 minutos):</strong> Proyectar Diapositiva 49 "Cronómetro".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 17 (0.5 minutos):</strong> Proyectar Diapositiva 50 "Revisión de Objetivos".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Ahora que hemos terminado, revisemos los objetivos de la misión. Hoy logramos: 1. Comprender cómo combinar técnicas avanzadas de prompting. 2. Integrar estas técnicas en un framework práctico. 3. Aplicar lo aprendido para desarrollar un plan efectivo de startup. ¡Han hecho un trabajo increíble, Genios! Cada etapa los llevó a explorar nuevas habilidades y a trabajar en equipo para crear algo extraordinario."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 18 (0.5 minutos):</strong> Proyectar Diapositiva 51 "You’ve Got Mon-e".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, su esfuerzo y creatividad en este Challenge merecen reconocimiento. ¡Han ganado Mon-e por su dedicación y resultados! Este Mon-e no solo refleja su trabajo duro, sino también su habilidad para aplicar lo aprendido en un proyecto del mundo real. ¡Felicidades por su gran desempeño!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 7 -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">🌟 Actividad 7: Easter Egg ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Un momento para gamificar el aprendizaje con una pregunta sorpresa.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Proyectar Diapositiva 52 "Easter Egg".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, llegó el momento del Easter Egg. Les haré una pregunta sobre algo que vimos hoy. Levanten la mano si creen saber la respuesta. Seleccionaré a tres de ustedes para que me la digan al oído."</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Proyectar Diapositiva 53 "Pregunta del Easter Egg".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Aquí va la pregunta: ¿Cuál es el único framework que no se puede pronunciar como una palabra? ¡Levanten la mano si saben la respuesta!"</td>
+            </tr>
+            <tr>
+                <td><strong>PASO 3 (1 minuto):</strong> Proyectar Diapositiva 54 "Respuesta Correcta".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Muy bien, escuchemos las respuestas. Uno por uno vengan a decirme la respuesta al oído. Ahora, la respuesta correcta es: RTF. ¡Felicidades a quienes acertaron, ganaron Mon-e extra!"</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 8 -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('honor_the_dojo')">
+        <div class="title">🙏 Actividad 8: Honor The Dojo ⏰ Tiempo: 1 minuto</div>
+        <div class="subtitle">Cierre y organización del espacio de aprendizaje.</div>
+    </div>
+    <div id="honor_the_dojo" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1 minuto):</strong> Proyectar Diapositiva 55 "Honor The Dojo".</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> "Genios, antes de despedirnos, vamos a honrar el espacio donde trabajamos. Cada equipo pase al frente a devolver sus Magic Tablets y asegúrense de dejar su área limpia y ordenada."</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<!-- -------------------------------------------------Espacio para Actividades --------------------------------------------------------- -->
+
+</div>
+
+</body>
+</html>
